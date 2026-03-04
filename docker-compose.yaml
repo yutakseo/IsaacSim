@@ -24,9 +24,9 @@ services:
       # PUBLIC_IP: ""
 
     volumes:
-      - isaac-cache:/root/.cache
-      - isaac-nv:/root/.nv
-      - isaac-logs:/root/.nvidia-omniverse/logs
+      - ./isaac-sim/volumes/cache:/root/.cache
+      - ./isaac-sim/volumes/nv:/root/.nv
+      - ./isaac-sim/volumes/logs:/root/.nvidia-omniverse/logs
       - ./isaac-sim/volumes/data:/root/.local/share/ov
 
     deploy:
@@ -48,11 +48,7 @@ services:
       ROS_DOMAIN_ID: "0"
       RMW_IMPLEMENTATION: "rmw_fastrtps_cpp"
     volumes:
-      - ./ros2/ros2_ws:/ros2_ws
+      - ./ros2/volumes/ros2_ws:/ros2_ws
     stdin_open: true
     tty: true
-
-volumes:
-  isaac-cache:
-  isaac-nv:
-  isaac-logs:
+    command: ["sleep", "infinity"]
