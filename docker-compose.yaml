@@ -23,10 +23,13 @@ services:
       # - 외부망 예: 공인 IP
       # PUBLIC_IP: ""
 
+    # 공식 문서 권장: 캐시/시스템용은 named volume 유지
+    # 사용자가 생성하는 데이터(씬, 프로젝트 등)만 이 디렉토리(./volumes) 아래로
     volumes:
-      - ./volumes/cache:/root/.cache
+      - isaac-cache:/root/.cache
+      - isaac-nv:/root/.nv
+      - isaac-logs:/root/.nvidia-omniverse/logs
       - ./volumes/data:/root/.local/share/ov
-      - ./volumes/logs:/root/.nvidia-omniverse/logs
 
     deploy:
       resources:
@@ -35,3 +38,8 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+
+volumes:
+  isaac-cache:
+  isaac-nv:
+  isaac-logs:
