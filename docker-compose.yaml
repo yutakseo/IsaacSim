@@ -1,7 +1,7 @@
 services:
   isaac-sim:
     build:
-      context: .
+      context: ./isaac-sim
       dockerfile: Dockerfile
     image: isaac-sim-stream:5.1.0
     container_name: isaac-sim
@@ -27,7 +27,7 @@ services:
       - isaac-cache:/root/.cache
       - isaac-nv:/root/.nv
       - isaac-logs:/root/.nvidia-omniverse/logs
-      - ./volumes/data:/root/.local/share/ov
+      - ./isaac-sim/volumes/data:/root/.local/share/ov
 
     deploy:
       resources:
