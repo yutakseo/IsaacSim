@@ -1,6 +1,6 @@
 .cursor/
 
-# Volume data (디렉터리 구조는 유지, 내용만 무시)
+# Volume data (디렉터리 구조만 유지, 내용은 무시)
 isaac-sim/volumes/cache/*
 !isaac-sim/volumes/cache/.gitkeep
 isaac-sim/volumes/nv/*
@@ -9,5 +9,5 @@ isaac-sim/volumes/logs/*
 !isaac-sim/volumes/logs/.gitkeep
 isaac-sim/volumes/data/*
 !isaac-sim/volumes/data/.gitkeep
-ros2/volumes/ros2_ws/*
-!ros2/volumes/ros2_ws/.gitkeep
+ros2/volumes/*
+!ros2/volumes/.gitkeep
